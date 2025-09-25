@@ -1,51 +1,45 @@
 <!DOCTYPE html>
-<html lang="en">    
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Web Page</title>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <title>Top super secret database</title>
     <link rel="stylesheet" href="styles.css">
 </head>
-<!-- THIS will be the log in and register page -->
 <body>
-    <div="login" class="login">
-        <h2>Login</h2>
-        <form action="/login" method="post">
-            <label for="username">Username:</label>
-            <input type="text" id="username" name="username" required>
-            <br>
-            <label for="password">Password:</label>
-            <input type="password" id="password" name="password" required>
-            <br>
-            <button type="submit">Login</button>
-        </form>
+    <!-- THIS will be the log in and register page -->
+    <main class="screen">
+        <section class="card" id="portal">
+            <h1>Other user</h1>
 
- 
- 
-    
+            <label for="username">User name</label>
+            <input id="username" placeholder="e.g., jdoe" autocomplete="username" />
 
+            <label for="password">Password</label>
+            <input id="password" type="password" placeholder="••••••••" autocomplete="current-password" />
 
-    
+            <div class="toggle">
+                <input type="checkbox" id="showpw" />
+                <label for="showpw">Show password</label>
+            </div>
 
+            <div class="actions">
+                <button id="loginBtn">Sign in</button>
+                <button class="ghost" id="registerBtn" title="Create a new local demo account">Register</button>
+            </div>
 
+            <div class="msg" id="msg" role="status" aria-live="polite"></div>
 
+            <div class="foot">
+                <a href="#" id="helpLink">How do I login to another domain?</a>
+            </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+            <div class="classified" id="classified">
+                <span class="badge">CLASSIFIED // EYES ONLY</span>
+                <pre id="secretText"></pre>
+            </div>
+        </section>
+    </main>
 </body>
 </html>
