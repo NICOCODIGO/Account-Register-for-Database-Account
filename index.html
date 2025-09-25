@@ -3,18 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     <title>Top super secret database</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" 
+        integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis1xD1VQvM6f6U2GZCkGq9KkN6qz8VZ0Q2d2p1c+V2c3bP2Yw6V9j9W2U2w7r5BA==" 
+        crossorigin="anonymous" referrerpolicy="no-referrer">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <!-- THIS will be the log in and register page -->
     <main class="screen">
         <section class="card" id="portal">
+            <div class="avatar" aria-hidden="true">
+                <i class="fa-solid fa-address-card"></i>
+            </div>
+            
             <h1>Other user</h1>
-
+        
             <label for="username">User name</label>
-            <input id="username" placeholder="e.g., jdoe" autocomplete="username" />
+            <div class="input-wrap">
+                <i class="fa-solid fa-address-card input-icon"></i>
+                <input id="username" placeholder="e.g., jdoe" autocomplete="username" />
+            </div>
 
             <label for="password">Password</label>
             <input id="password" type="password" placeholder="••••••••" autocomplete="current-password" />
