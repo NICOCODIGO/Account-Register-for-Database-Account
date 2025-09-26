@@ -1,0 +1,138 @@
+:root{ /* the color for the background and text*/
+
+  --bg1:#0a49ff; 
+  --bg2:#051a6f;
+  --ink:#eaf0ff; /* changes the color of the text */
+
+/* The color between is mostly used for the border */
+  --muted:#a9b6ff;
+  --ok:#58d68d;
+  --err:#ff6b6b;         
+  --glass:#0b1b4dcc;        
+  --glass2:#0b1b4db3;
+/* The color between is mostly used for the border */
+
+}
+
+
+
+  
+h1 {
+    margin: 0 0 18px;
+    text-align: center;
+    font-size: 1.5rem;
+    
+}
+ 
+
+*{  /* this symbol means it targets everything, html, body, headermain.screen, section.card#portal, all labels, inputs, all divs, basically all ELEMENTS. a baseline basically, can still be overwritten */
+    box-sizing:border-box; 
+    font-family:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    font-size:16px; /* changes the size of the text */
+    line-height:1.4;
+    font-weight:400;
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;      
+
+}
+
+html, body {
+    height: 100%; /* makes the body take up the whole screen, add moer number and it will allow you to scroll down */
+    margin: 0; /* something to do with text border? */
+    background: radial-gradient(1200px 700px at 30% 20%, var(--bg1), var(--bg2) 60%); /* gives the background a blue gradient */
+    color: var(--ink); /*Gives the text the color white*/
+}
+
+.screen {
+    min-height: 100%;
+    display: grid; /* makes a grid, also centeres everything the same as below? */
+    place-items: center; /* makes everything centered */
+    padding: 24px;
+}
+
+.card { /*THE BORDER AND THE BLURRY BACKGROUND*/
+
+    width: min(420px, 92vw); /* moves the text, input, headers, and everything written in html text together */
+    color: var(--ink);
+    background: linear-gradient(180deg, var(--bg2), var(--glass2));
+    border: 1px solid #23337a; border-radius: 16px; /* this is where the border forms, and the border-radius changes the edges*/
+    padding:28px 24px 22px; /*this makes the border radius expands more*/
+    backdrop-filter: blur(14px); /* suppose to makes the background blurry but not too noticable */
+    box-shadow: 0 20px 60px #0006, inset 0 1px 0 #7aa0ff22; /* the way its setup makes shadow looks nice with the border */
+
+}
+
+label {
+    display: block; /* makes the box inputs and everything inside box border organize from top to bottom */
+    margin: 10px 4px 6px;
+    font-size: 12px;
+    color: var(--muted); /* changes the color of the label text i think? */
+    outline: none;
+}
+
+input::placeholder{ color:#a8b3ff80 } /* changes the color of the placeholder text */
+
+.toggle{
+    display: flex; 
+    gap: 8px;
+    align-items: center;
+    margin-top: 8px;
+    color: #bcc9ff;
+    font-size: 12px;
+}
+
+.actions { /* the sign in and register buttons */
+    display: flex;
+    gap: 10px; /* gap is the space between the two buttons: "Sign in" GAP HERE "Register"*/
+    margin-top: 14px;
+}
+
+button { /* this will the button id and class in html */
+    flex: 1; /* makes the sign in and register button the size of the border in width */
+    padding: 12px; /* makes the button bigger in height */
+    border-radius: 10px; 
+    border: 1px solid #2440a0; /* border color of the button */
+    background: #16308f; /* color of the button */
+    color:#e6edff; /* color of the text in the button */
+    cursor: pointer; /* makes the cursor into a fingerpointer when hovering over the button */
+    font-weight: 600;
+}
+
+button.ghost {
+    background: transparent;
+}
+
+button:hover {
+    filter: brightness(1.08);
+}
+
+.msg{
+    min-height: 20px;
+    margin-top: 10px;
+    font-size: 13px;
+}
+
+.msg.ok{color:var(--ok)} .msg.err{color:var(--err)}
+.shake{animation:shake .3s linear 1}
+@keyframes shake{25%{transform:translateX(-6px)}50%{transform:translateX(6px)}75%{transform:translateX(-4px)}}
+
+.classified{
+  display:none;margin-top:16px;padding:16px;border-radius:12px;
+  background:#09164a;border:1px solid #2b3da6;color:#e8f0ff
+}
+.classified pre{
+  white-space:pre-wrap;word-break:break-word;margin:8px 0 0;
+  font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace
+}
+.badge{
+  display:inline-block;padding:2px 8px;border-radius:999px;
+  background:#e74c3c;color:#fff;font-size:11px;letter-spacing:.04em
+}
+
+
+
+
+
+
+
+

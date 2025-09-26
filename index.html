@@ -1,54 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Top super secret database</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" 
-        integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis1xD1VQvM6f6U2GZCkGq9KkN6qz8VZ0Q2d2p1c+V2c3bP2Yw6V9j9W2U2w7r5BA==" 
-        crossorigin="anonymous" referrerpolicy="no-referrer">
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Secret Database Project</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-    <!-- THIS will be the log in and register page -->
-    <main class="screen">
-        <section class="card" id="portal">
-            <div class="avatar" aria-hidden="true">
-                <i class="fa-solid fa-address-card"></i>
-            </div>
-            
-            <h1>Other user</h1>
-        
-            <label for="username">User name</label>
-            <div class="input-wrap">
-                <i class="fa-solid fa-address-card input-icon"></i>
-                <input id="username" placeholder="e.g., jdoe" autocomplete="username" />
-            </div>
+  <main class="screen">
+    <section class="card" id="portal">
+      <h1>Top Super Secret Database</h1>
 
-            <label for="password">Password</label>
-            <input id="password" type="password" placeholder="••••••••" autocomplete="current-password" />
+      <label for="username">Username</label>
+      <input id="username" placeholder="e.g., jdoe" autocomplete="username" />
 
-            <div class="toggle">
-                <input type="checkbox" id="showpw" />
-                <label for="showpw">Show password</label>
-            </div>
+      <label for="password">Password</label>
+      <input id="password" type="password" placeholder="••••••••" autocomplete="current-password" />
 
-            <div class="actions">
-                <button id="loginBtn">Sign in</button>
-                <button class="ghost" id="registerBtn" title="Create a new local demo account">Register</button>
-            </div>
+      <div class="toggle">
+        <input type="checkbox" id="showpw" />
+        <label for="showpw">Show password</label>
+      </div>
 
-            <div class="msg" id="msg" role="status" aria-live="polite"></div>
+      <div class="actions">
+        <button id="loginBtn">Sign in</button>
+        <button class="ghost" id="registerBtn">Register</button>
+      </div>
 
-            <div class="foot">
-                <a href="#" id="helpLink">How do I login to another domain?</a>
-            </div>
-
-            <div class="classified" id="classified">
-                <span class="badge">CLASSIFIED // EYES ONLY</span>
-                <pre id="secretText"></pre>
-            </div>
-        </section>
-    </main>
+      <div class="classified" id="classified">
+        <span class="badge">CLASSIFIED // EYES ONLY</span>
+        <pre id="secretText">
+TOP SECRET DATA
+================
+1. Project X details
+2. Agent identities
+3. Launch codes
+4. Secret locations
+5. Confidential communications
+6. Classified research
+7. Hidden agendas
+8. Covert operations
+9. Sensitive information
+10. Encrypted files
+        </pre>
+      </div>
+    </section>
+  </main>
+  <script src="sales.js"></script>
 </body>
-</html>
+</html> 
