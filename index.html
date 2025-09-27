@@ -11,23 +11,28 @@
     <section class="card" id="portal">
       <h1>Top Super Secret Database</h1>
 
-      <label for="username">Username</label>
-      <input id="username" placeholder="e.g., jdoe" autocomplete="username" />
+      <form id="auth" novalidate>
+        <label for="username">Username</label>
+        <input id="username" name="username" placeholder="e.g., jdoe" autocomplete="username" />
 
-      <label for="password">Password</label>
-      <input id="password" type="password" placeholder="••••••••" autocomplete="current-password" />
+        <label for="password">Password</label>
+        <input id="password" name="password" type="password" placeholder="••••••••" autocomplete="current-password" />
 
-      <div class="toggle">
-        <input type="checkbox" id="showpw" />
-        <label for="showpw">Show password</label>
-      </div>
+        <div class="toggle">
+          <input type="checkbox" id="showpw" />
+          <label for="showpw">Show password</label>
+        </div>
 
-      <div class="actions">
-        <button id="loginBtn">Sign in</button>
-        <button class="ghost" id="registerBtn">Register</button>
-      </div>
+        <div class="actions">
+          <button id="loginBtn" type="submit">Sign in</button>
+          <button class="ghost" id="registerBtn" type="button">Register</button>
+        </div>
 
-      <div class="classified" id="classified">
+        <div class="msg" id="msg" role="status" aria-live="polite"></div>
+      </form>
+
+      <!-- Revealed after successful login -->
+      <div class="classified" id="classified" hidden>
         <span class="badge">CLASSIFIED // EYES ONLY</span>
         <pre id="secretText">
 TOP SECRET DATA
@@ -46,6 +51,6 @@ TOP SECRET DATA
       </div>
     </section>
   </main>
-  <script src="sales.js"></script>
+  <script src="app.js"></script>
 </body>
-</html> 
+</html>

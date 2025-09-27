@@ -14,27 +14,28 @@
 
 }
 
+ 
+
+* {  /* this symbol means it targets everything, html, body, headermain.screen, section.card#portal, all labels, inputs, all divs, basically all ELEMENTS. a baseline basically, can still be overwritten */
+    box-sizing: border-box; 
+    font-family: 'Courier New', Courier, monospace; /* changes the font of everything */
+    font-size: 16px; /* changes the size of the text */
+    line-height: 1.4;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+}
 
 
-  
-h1 {
+h1 { 
     margin: 0 0 18px;
     text-align: center;
     font-size: 1.5rem;
     
 }
- 
 
-*{  /* this symbol means it targets everything, html, body, headermain.screen, section.card#portal, all labels, inputs, all divs, basically all ELEMENTS. a baseline basically, can still be overwritten */
-    box-sizing:border-box; 
-    font-family:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-    font-size:16px; /* changes the size of the text */
-    line-height:1.4;
-    font-weight:400;
-    -webkit-font-smoothing:antialiased;
-    -moz-osx-font-smoothing:grayscale;      
 
-}
 
 html, body {
     height: 100%; /* makes the body take up the whole screen, add moer number and it will allow you to scroll down */
@@ -44,11 +45,28 @@ html, body {
 }
 
 .screen {
-    min-height: 100%;
+    min-height: 100svh; /* makes the web take up the whole screen, add more number and it will allow you to scroll down */
     display: grid; /* makes a grid, also centeres everything the same as below? */
     place-items: center; /* makes everything centered */
     padding: 24px;
 }
+
+input{
+  width:100%;
+  padding:12px;
+  border-radius:10px;
+  border:1px solid #3a4da8; /* border color of the input box */
+  background:#0b1744;
+  color:var(--ink); /* changes the color of the text typed inside to white*/
+  outline:none; 
+}
+
+input:focus{
+  border-color:#6aa3ff; /* changes the border color of the input box when clicked on */
+  box-shadow:0 0 0 3px #6aa3ff33; /* adds a blue shadow around the input box when clicked on */
+}
+
+
 
 .card { /*THE BORDER AND THE BLURRY BACKGROUND*/
 
@@ -70,19 +88,38 @@ label {
     outline: none;
 }
 
-input::placeholder{ color:#a8b3ff80 } /* changes the color of the placeholder text */
+input::placeholder{ color:#a8b3ff80 } /* changes the color of the placeholder text (seen inside the username, password box) */
 
-.toggle{
-    display: flex; 
-    gap: 8px;
+.toggle{   /* the show password button */
+    display: inline-flex;
     align-items: center;
     margin-top: 8px;
-    color: #bcc9ff;
-    font-size: 12px;
+    gap: 6px;
+    align-self: flex-start;
 }
+
+
+
+.toggle input[type="checkbox"]{ margin:0; }
+
+.toggle label{  /* the show password button text */
+    font-size: 13px;
+    margin:0; 
+    white-space: nowrap;  /* keeps the show password button on one line instead of on top of each other */
+    display:inline; 
+    line-height:1;  /* squeezes the show password button closer to the checkbox */
+    cursor:pointer; 
+}
+
+input:focus-visible{
+  border-color:#6aa3ff;
+  box-shadow:0 0 0 3px #6aa3ff33;
+}
+
 
 .actions { /* the sign in and register buttons */
     display: flex;
+    flex-direction: column; /* makes the sign in and register button stack on top of each other */
     gap: 10px; /* gap is the space between the two buttons: "Sign in" GAP HERE "Register"*/
     margin-top: 14px;
 }
@@ -112,22 +149,35 @@ button:hover {
     font-size: 13px;
 }
 
-.msg.ok{color:var(--ok)} .msg.err{color:var(--err)}
-.shake{animation:shake .3s linear 1}
-@keyframes shake{25%{transform:translateX(-6px)}50%{transform:translateX(6px)}75%{transform:translateX(-4px)}}
 
-.classified{
-  display:none;margin-top:16px;padding:16px;border-radius:12px;
-  background:#09164a;border:1px solid #2b3da6;color:#e8f0ff
+
+.msg.ok { 
+    color: var(--ok);
 }
-.classified pre{
-  white-space:pre-wrap;word-break:break-word;margin:8px 0 0;
-  font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace
+
+.msg.err { 
+    color: var(--err);
 }
-.badge{
-  display:inline-block;padding:2px 8px;border-radius:999px;
-  background:#e74c3c;color:#fff;font-size:11px;letter-spacing:.04em
+
+.shake {
+    animation: shake .3s linear 1;
 }
+
+@keyframes shake {
+    25% {
+        transform: translateX(-6px);
+    }
+    50% {
+        transform: translateX(6px);
+    }
+    75% {
+        transform: translateX(-4px);
+    }
+}
+
+
+
+
 
 
 
