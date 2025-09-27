@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Create Account — Secret DB</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="screen">
+    <section class="card" id="regCard">
+      <h1>Create your account</h1>
+
+      <form id="regForm" novalidate>
+        <label for="rUser">Username</label>
+        <input id="rUser" name="username" placeholder="e.g., jdoe" autocomplete="username" required />
+
+        <label for="rPass">Password</label>
+        <input id="rPass" name="new-password" type="password" placeholder="••••••••" autocomplete="new-password" required />
+
+        <label for="rConfirm">Confirm password</label>
+        <input id="rConfirm" name="confirm-password" type="password" placeholder="••••••••" autocomplete="new-password" required />
+
+        <div class="toggle">
+          <input type="checkbox" id="rShow" />
+          <label for="rShow">Show passwords</label>
+        </div>
+
+        <div class="actions">
+          <button type="submit">Create account</button>
+          <a href="index.html" class="ghost" style="text-align:center; padding:12px; border:1px solid #2440a0; border-radius:10px; text-decoration:none; color:#e6edff;">Back to sign in</a>
+        </div>
+
+        <div class="msg" id="rMsg" role="status" aria-live="polite"></div>
+      </form>
+    </section>
+  </main>
+  <script src="register.js"></script>
+</body>
+</html>

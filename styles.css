@@ -175,8 +175,12 @@ button:hover {
     }
 }
 
+/* BELOW ARE FOR THE TABLE */
 
-
+.table-wrap{ margin-top: 10px; overflow:auto; max-height: 50vh; }
+table.grid{ width:100%; border-collapse:collapse; background:#0b1744; color:var(--ink); font-size:14px; }
+table.grid th, table.grid td{ padding:10px; border:1px solid #23337a; text-align:left; }
+table.grid thead th{ background:#132766; position:sticky; top:0; }
 
 
 
