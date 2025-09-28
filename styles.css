@@ -126,7 +126,7 @@ input:focus-visible{
 
 button { /* this will the button id and class in html */
     flex: 1; /* makes the sign in and register button the size of the border in width */
-    padding: 12px; /* makes the button bigger in height */
+    padding: 12px; /* changes the button height */
     border-radius: 10px; 
     border: 1px solid #2440a0; /* border color of the button */
     background: #16308f; /* color of the button */
@@ -175,6 +175,15 @@ button:hover {
     }
 }
 
+.credits{
+    text-align: center;
+    font-size: 12px;
+    color: var(--muted);
+    margin-top: 20px;
+    user-select: none; /* makes the text unselectable */
+    background: transparent;
+}
+
 /* BELOW ARE FOR THE TABLE */
 
 .table-wrap{ margin-top: 10px; overflow:auto; max-height: 50vh; }
@@ -183,6 +192,33 @@ table.grid th, table.grid td{ padding:10px; border:1px solid #23337a; text-align
 table.grid thead th{ background:#132766; position:sticky; top:0; }
 
 
+
+
+/* this is for the table to fill the whole screen */
+body.authed .screen{
+    min-height: 100svh;
+    display: block;
+    padding: 0;
+}
+
+body.authed #portal.card{
+    width: 100svw; /* makes the table take up the whole screen width */
+    height: 100svh;
+    border-radius: 0;
+    padding: 20px 30px 30px;
+    box-shadow: none;
+    background: transparent; /*keeps the background color from index.html*/
+    backdrop-filter: none;
+}
+
+
+body.authed #directory .actions{
+  flex: 0 0 auto;
+  margin: 0;                /* override inline margin */
+  padding: 8px 12px;
+  border-bottom: 1px solid #23337a;
+  background: linear-gradient(180deg, var(--bg2), var(--glass2));
+}
 
 
 

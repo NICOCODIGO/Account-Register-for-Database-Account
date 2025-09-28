@@ -21,16 +21,16 @@ function say(type, text){
 
 // ===== data to render after login =====
 const PEOPLE = [
-  { name:"Alice Johnson",  email:"alice.johnson@example.com",  phone:"(212) 555-0198", address:"120 Maple St, Brooklyn, NY" },
-  { name:"Brian Lee",      email:"brian.lee@example.com",      phone:"(917) 555-2266", address:"44 5th Ave, New York, NY" },
-  { name:"Carmen Diaz",    email:"carmen.diaz@example.com",    phone:"(718) 555-4420", address:"88 Grove Rd, Queens, NY" },
-  { name:"Darren Patel",   email:"darren.patel@example.com",   phone:"(646) 555-3110", address:"9 Liberty Pl, Jersey City, NJ" },
-  { name:"Elena Rossi",    email:"elena.rossi@example.com",    phone:"(201) 555-7744", address:"510 Ridge Blvd, Fort Lee, NJ" },
-  { name:"Felix Kim",      email:"felix.kim@example.com",      phone:"(973) 555-0077", address:"42 Cedar St, Newark, NJ" },
-  { name:"Grace Park",     email:"grace.park@example.com",     phone:"(732) 555-9922", address:"101 Ocean Ave, Long Branch, NJ" },
-  { name:"Hector Alvarez", email:"hector.alvarez@example.com", phone:"(908) 555-5535", address:"75 Main St, Elizabeth, NJ" },
+  { name:"Walter White",  email:"WalterWhite@example.com",  phone:"(212) 555-0198", address:"308 Negra Arroyo Lane, Albuquerque, NM" },
+  { name:"Skyler White",   email:"SkylerWhite@example.com",   phone:"(212) 555-0198", address:"308 Negra Arroyo Lane, Albuquerque, NM" },
+  { name:"Jesse Pinkman",  email:"jesse.pinkman@example.com",  phone:"(505) 148-3369", address:"9801 Margo St, Albuquerque, NM" },
+  { name:"Mike Ehrmantraut",   email:"mike.ehrmantraut@example.com",   phone:"(646) 555-3110", address:"1001 5th St, Albuquerque, NM" },
+  { name:"Tony Sopranos",    email:"tony.sopranos@example.com",    phone:"(201) 555-7744", address:"14 aspen dr, north caldwell, NJ" },
+  { name:"Peter Parker",      email:"peter.parker@example.com",      phone:"(973) 555-0077", address:"410 chelsea st, Manhattan, NY" },
+  { name:"Sherlock Holmes",     email:"sherlock.holmes@example.com",     phone:"(732) 555-9922", address:"221B Baker Street, London, UK" },
+  { name:"Homer Simpson", email:"homer.simpson@example.com", phone:"(908) 555-5535", address:"742 Evergreen Terrace, Springfield, USA" },
   { name:"Ivy Chen",       email:"ivy.chen@example.com",       phone:"(551) 555-8844", address:"233 Elm St, Hackensack, NJ" },
-  { name:"Jacob Brown",    email:"jacob.brown@example.com",    phone:"(646) 555-1234", address:"700 West End Ave, New York, NY" },
+  { name:"Gale Boetticher",    email:"gale.boetticher@example.com",    phone:"(646) 555-1234", address:"6353 Juan Tabo Blvd NE, Albuquerque, NM" },
 ];
 
 function renderTable(rows){
@@ -62,7 +62,7 @@ $("registerBtn").addEventListener("click", ()=>{
   location.href = "register.html";
 });
 
-// sign in
+// the sign in
 form.addEventListener("submit", async (e)=>{
   e.preventDefault();
   const user = norm($("username").value);
@@ -79,6 +79,7 @@ form.addEventListener("submit", async (e)=>{
 
   // success: persist session + show table
   localStorage.setItem(SESSION_KEY, JSON.stringify({ user, ts: Date.now() }));
+  document.body.classList.add("authed"); 
   say("ok", "Signed in as " + user);
   form.hidden = true;
   directory.hidden = false;
@@ -101,6 +102,7 @@ $("signOutBtn").addEventListener("click", ()=>{
   try{
     const sess = JSON.parse(localStorage.getItem(SESSION_KEY) || "null");
     if(sess && sess.user){
+      document.body.classList.add("authed"); 
       form.hidden = true;
       directory.hidden = false;
       renderTable(PEOPLE);
