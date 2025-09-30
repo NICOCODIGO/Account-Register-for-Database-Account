@@ -48,7 +48,7 @@ function renderTable(rows){
 }
 
 // ===== page wiring =====
-const form = $("auth");
+const form = $("auth");               
 const directory = $("directory");
 const portal = $("portal");
 
@@ -89,13 +89,14 @@ form.addEventListener("submit", async (e)=>{
 // sign out
 $("signOutBtn").addEventListener("click", ()=>{
   localStorage.removeItem(SESSION_KEY);
+  document.body.classList.remove("authed"); // hide directory, show form. this allows signing in again and keeps the page from losing its css style when logging out to it
   directory.hidden = true;
   form.hidden = false;
   form.reset();
   $("showpw").checked = false;
   $("password").type = "password";
   say("", ""); // clear message
-});
+}); 
 
 // auto-restore session on page load
 (function restore(){
@@ -108,5 +109,7 @@ $("signOutBtn").addEventListener("click", ()=>{
       renderTable(PEOPLE);
       say("ok", "Welcome back, " + sess.user);
     }
-  }catch{}
+  }catch{    
+    document.body.classList.remove("authed");       //this is just a safety measure a fallback 
+  }
 })();
