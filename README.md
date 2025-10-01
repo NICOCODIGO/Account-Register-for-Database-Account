@@ -28,5 +28,13 @@ Even though it might be simple to some, to me this project projects my understan
 
 <p>if this finds you well, thanks for even taking a peek! I will continue working on my skills and always open for feedback 🙌 
 </p>
+<h2>Main Page</h2>
+<img width="1440" height="793" alt="Screenshot 2025-10-01 at 5 49 44 PM" src="https://github.com/user-attachments/assets/171fd483-9bd2-4faa-bef7-9471da63c532"/>
 
+<h2>Register Page</h2>
+<img width="1440" height="788" alt="Screenshot 2025-10-01 at 5 50 04 PM" src="https://github.com/user-attachments/assets/13c7d60a-8da0-4d56-be26-729727004d12"/>
 
+<h2>The Fictional Database</h2> 
+<img width="1440" height="790" alt="Screenshot 2025-10-01 at 5 50 48 PM" src="https://github.com/user-attachments/assets/2fb062d5-0d12-4585-b062-c4d9594658c1"/>
+
+Up next to practice: SQL Languages !
