@@ -95,7 +95,7 @@ $("registerBtn").addEventListener("click", ()=>{
   location.href = "register.html";
 });
 
-// the sign in
+// ================= TO SIGN IN =======================
 form.addEventListener("submit", async (e)=>{
   e.preventDefault();
   const user = norm($("username").value);
