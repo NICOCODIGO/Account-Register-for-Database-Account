@@ -1,22 +1,55 @@
-// ===== utilities =====
-const $ = (id) => document.getElementById(id);
+function $(id) {
+  return document.getElementById(id);
+}
+
+
+/* ========= Keys for localStorage/session ========= */
 const DB_KEY = "secret.users";
 const SESSION_KEY = "secret.session";
 
-const readUsers  = () => JSON.parse(localStorage.getItem(DB_KEY) || "{}");
-const writeUsers = (obj) => localStorage.setItem(DB_KEY, JSON.stringify(obj));
 
-async function sha256(text){
-  const enc = new TextEncoder().encode(text);
-  const buf = await crypto.subtle.digest("SHA-256", enc);
-  return [...new Uint8Array(buf)].map(b=>b.toString(16).padStart(2,"0")).join("");
+/* ========= Read/Write users (more explicit + safe) ========= */ 
+function readUsers() {
+  const raw = localStorage.getItem(DB_KEY);
+  const fallback = "{}";
+  try {
+    const parsed = JSON.parse(raw ?? fallback);
+    return parsed || {};
+  } catch {
+    return {};
+  }
 }
-const norm = (u) => (u||"").trim().toLowerCase();
 
-function say(type, text){
-  const msg = $("msg");
-  msg.className = "msg " + (type === "err" ? "err" : type === "ok" ? "ok" : "");
-  msg.innerHTML = text;
+function writeUsers(obj) {
+  const jsonText = JSON.stringify(obj);
+  localStorage.setItem(DB_KEY, jsonText);
+}
+
+async function sha256(text) {
+  const encoder = new TextEncoder();
+  const inputBytes = encoder.encode(text);
+  const hashBuffer = await crypto.subtle.digest("SHA-256", inputBytes);
+  const hashArray = Array.from(new Uint8Array(hashBuffer));
+  const hex = hashArray.map(b => b.toString(16).padStart(2, "0")).join("");
+  return hex;
+}
+
+function norm(u) {
+  const safe = u ?? "";
+  const trimmed = safe.trim();
+  const lowered = trimmed.toLowerCase();
+  return lowered;
+}
+
+// keeps the html aspect 
+function say(type, text) {
+  const msgEl = $("msg");
+  if (!msgEl) return;
+  let cls = "msg";
+  if (type === "ok") cls += " ok";
+  else if (type === "err") cls += " err";
+  msgEl.className = cls;
+  msgEl.innerHTML = text;
 }
 
 // ===== data to render after login =====
@@ -25,8 +58,8 @@ const PEOPLE = [
   { name:"Skyler White",   email:"SkylerWhite@example.com",   phone:"(212) 555-0198", address:"308 Negra Arroyo Lane, Albuquerque, NM" },
   { name:"Jesse Pinkman",  email:"jesse.pinkman@example.com",  phone:"(505) 148-3369", address:"9801 Margo St, Albuquerque, NM" },
   { name:"Mike Ehrmantraut",   email:"mike.ehrmantraut@example.com",   phone:"(646) 555-3110", address:"1001 5th St, Albuquerque, NM" },
-  { name:"Tony Sopranos",    email:"tony.sopranos@example.com",    phone:"(201) 555-7744", address:"14 aspen dr, north caldwell, NJ" },
-  { name:"Peter Parker",      email:"peter.parker@example.com",      phone:"(973) 555-0077", address:"410 chelsea st, Manhattan, NY" },
+  { name:"Tony Soprano",    email:"tony.soprano@example.com",    phone:"(201) 555-7744", address:"14 Aspen Dr, North Caldwell, NJ" },
+  { name:"Peter Parker",      email:"peter.parker@example.com",      phone:"(973) 555-0077", address:"410 Chelsea St, Manhattan, NY" },
   { name:"Sherlock Holmes",     email:"sherlock.holmes@example.com",     phone:"(732) 555-9922", address:"221B Baker Street, London, UK" },
   { name:"Homer Simpson", email:"homer.simpson@example.com", phone:"(908) 555-5535", address:"742 Evergreen Terrace, Springfield, USA" },
   { name:"Ivy Chen",       email:"ivy.chen@example.com",       phone:"(551) 555-8844", address:"233 Elm St, Hackensack, NJ" },
