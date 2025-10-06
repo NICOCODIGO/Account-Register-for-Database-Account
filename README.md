@@ -10,7 +10,7 @@
 - The user credential is stored on **localStorages** only, meaning everything you do is in *YOUR* browser
 - I evem added a **SHA-256 hasing function** just to show myself and the user how it would look lie in a browser, feel free to open DevTools and check it out
 
-=================
+----------
 
 
 <h2>🛠️ Features I used</h2>
